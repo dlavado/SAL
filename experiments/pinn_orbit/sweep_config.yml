@@ -1,0 +1,122 @@
+
+# Description: config file for default parameters of scenenet_ts40k experiment
+# Author: Diogo Mateus
+
+program: basic_trainer_pinn.py
+method: random
+metric:
+  goal: minimize
+  name: val_loss
+project: 'ADMM_AUGLAG_ORBIT'
+variables:
+  - &dataset 'orbit'
+  - &model 'pinn'
+command:
+  #- ${env}
+  - python3
+  - ${program}
+  - --wandb_sweep 
+  - --model
+  - *model
+  - --dataset
+  - *dataset
+  #- ${args}
+parameters:
+  output_dir: 
+    value: 'experiments/*model_*dataset/outputs'
+  # ------------------ #
+  # dataset config
+  # ------------------ #
+  dataset:
+    value: *dataset
+  data_path:
+    value: ../datasets/cifar10/
+  batch_size:
+    value: 128
+  num_workers:
+    value: 12
+  batch_norm:
+    value: True
+  dropout:
+    value: 0.2
+  # ------------------ #
+  # model config
+  # ------------------ #
+  model:
+    value: *model
+  window_size:
+    values: [3, 5, 10]
+  feat_size:
+    value: 7
+  hidden_dim:
+    values: [256, 128, 64]
+  in_channels:
+    value: 1
+  # ------------------ #
+  # training config
+  # ------------------ #
+  optimizer:
+    value: 'adam' #'sgd' 
+  learning_rate:
+    min: 0.0001
+    max: 0.01
+  max_epochs:
+    value: 20 # -1 for infinite
+  accelerator:
+    value: 'gpu'
+  devices:
+    value: -1 # -1 for all available gpus
+  early_stop_metric:
+    value: 'val_loss'
+  # ------------------ #
+  # Checkpoint config
+  # ------------------ #
+  resume_from_checkpoint:
+    value: False
+  checkpoint_dir:
+    value: '${ROOT_PROJECT}/experiments/${model_name}_${dataset_name}/'
+  resume_checkpoint_name:
+    value: val_MulticlassAccuracy
+  checkpoint_every_n_epochs: # This parameter and the next one are mutually exclusive
+    value: 1 # every n epochs
+  checkpoint_every_n_steps:
+    value: 0 # every n steps
+  # ------------------ #
+  # Opt Config
+  # ------------------ #
+  convergence_mode:
+    values: ['penalty', 'admm', 'auglag'] # 'admm' or 'penalty' or 'auglag'
+    #description: 'Convergence mode of the ADMM algorithm'
+  admm_rho:
+    min: 0.1
+    max: 1.0
+    #description: 'Initial value of the penalty parameter of the augmented Lagrangian method'
+  admm_rho_update_factor:
+    value: 1.0
+    #description: 'Factor by which the penalty parameter is updated'
+  admm_stepsize:
+    value: 1.0
+    # description: 'Step size of the ADMM algorithm'
+  admm_stepsize_update_factor:
+    value: 1.0
+    # description: 'Factor by which the step size is updated'
+  admm_rho_max:
+    value: 10
+    # description: 'Maximum value of the penalty parameter'
+  convergence_iterations:
+    value: 5
+    # description: 'Number of iterations of the Augmented Lagrangian method to reach convergence'
+  # ------------------ #
+  # Constraint Config
+  # ------------------ #
+  reg_weight:
+    min: 0.0001
+    max: 0.1
+    #description: 'L1 constraint weight'
+  threebody_weight:
+    min: 0.0001
+    max: 0.1
+    # description: 'Three-body constraint weight'
+  cv_0:
+    value: 1.523710003321501e-09 # taken from fixed penalty
+    # description: 'Initial Constraint violation'

@@ -1,0 +1,146 @@
+Using 16bit None Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 4070 Laptop GPU') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+Files already downloaded and verified
+Files already downloaded and verified
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=3` reached.
+Batch size 2 succeeded, trying batch size 4
+========== val metrics ==========
+	val_Accuracy: 0.0
+=====> CV: 2531.574
+=====> CV/CV_0: 1.000
+=====> Objective_function loss: 4.701
+=====> Constraint Norm loss: 25.316
+========== val metrics ==========
+	val_Accuracy: 0.0
+=====> CV: 2524.374
+=====> CV/CV_0: 0.997
+=====> Objective_function loss: 1.746
+=====> Constraint Norm loss: 25.244
+`Trainer.fit` stopped: `max_steps=3` reached.
+Batch size 4 succeeded, trying batch size 8
+`Trainer.fit` stopped: `max_steps=3` reached.
+Batch size 8 succeeded, trying batch size 16
+========== val metrics ==========
+	val_Accuracy: 0.0
+=====> CV: 2505.052
+=====> CV/CV_0: 0.990
+=====> Objective_function loss: 0.663
+=====> Constraint Norm loss: 25.051
+========== val metrics ==========
+	val_Accuracy: 0.0
+=====> CV: 2487.636
+=====> CV/CV_0: 0.983
+=====> Objective_function loss: 0.714
+=====> Constraint Norm loss: 24.876
+`Trainer.fit` stopped: `max_steps=3` reached.
+Batch size 16 succeeded, trying batch size 32
+`Trainer.fit` stopped: `max_steps=3` reached.
+Batch size 32 succeeded, trying batch size 64
+`Trainer.fit` stopped: `max_steps=3` reached.
+Batch size 64 succeeded, trying batch size 128
+========== val metrics ==========
+	val_Accuracy: 0.0
+=====> CV: 2471.580
+=====> CV/CV_0: 0.976
+=====> Objective_function loss: 1.412
+=====> Constraint Norm loss: 24.716
+========== val metrics ==========
+	val_Accuracy: 0.0
+=====> CV: 2456.873
+=====> CV/CV_0: 0.971
+=====> Objective_function loss: 2.419
+=====> Constraint Norm loss: 24.569
+`Trainer.fit` stopped: `max_steps=3` reached.
+Batch size 128 succeeded, trying batch size 256
+`Trainer.fit` stopped: `max_steps=3` reached.
+Batch size 256 succeeded, trying batch size 512
+========== val metrics ==========
+	val_Accuracy: 0.0
+=====> CV: 2443.415
+=====> CV/CV_0: 0.965
+=====> Objective_function loss: 3.235
+=====> Constraint Norm loss: 24.434
+========== val metrics ==========
+	val_Accuracy: 0.0
+=====> CV: 2431.033
+=====> CV/CV_0: 0.960
+=====> Objective_function loss: 3.789
+=====> Constraint Norm loss: 24.310
+`Trainer.fit` stopped: `max_steps=3` reached.
+Batch size 512 succeeded, trying batch size 1024
+========== val metrics ==========
+	val_Accuracy: 0.0
+=====> CV: 2419.511
+=====> CV/CV_0: 0.956
+=====> Objective_function loss: 4.050
+=====> Constraint Norm loss: 24.195
+========== val metrics ==========
+	val_Accuracy: 0.0
+`Trainer.fit` stopped: `max_steps=3` reached.
+Batch size 1024 succeeded, trying batch size 2048
+=====> CV: 2408.633
+=====> CV/CV_0: 0.952
+=====> Objective_function loss: 4.163
+=====> Constraint Norm loss: 24.086
+========== val metrics ==========
+	val_Accuracy: 0.0
+`Trainer.fit` stopped: `max_steps=3` reached.
+Batch size 2048 succeeded, trying batch size 4096
+=====> CV: 2398.235
+=====> CV/CV_0: 0.947
+=====> Objective_function loss: 4.229
+=====> Constraint Norm loss: 23.982
+========== val metrics ==========
+	val_Accuracy: 0.0
+Batch size 4096 failed, trying batch size 2048
+Finished batch size finder, will continue with full run using batch size 2048
+Restoring states from the checkpoint path at /home/didi/VSCode/Philosophy-of-Doctors/MNIST_GENEOs/scripts/.scale_batch_size_86d85ce6-aba3-45cf-8da3-a8b825f0e812.ckpt
+Restored all states from the checkpoint file at /home/didi/VSCode/Philosophy-of-Doctors/MNIST_GENEOs/scripts/.scale_batch_size_86d85ce6-aba3-45cf-8da3-a8b825f0e812.ckpt
+You are using a CUDA device ('NVIDIA GeForce RTX 4070 Laptop GPU') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+=====> CV: 2388.197
+=====> CV/CV_0: 0.943
+Learning rate in use is: 0.001
+Files already downloaded and verified
+Files already downloaded and verified
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name          | Type                     | Params
+-----------------------------------------------------------
+0 | model         | LitResnet                | 11.2 M
+1 | train_metrics | MetricCollection         | 0
+2 | val_metrics   | MetricCollection         | 0
+3 | test_metrics  | MetricCollection         | 0
+4 | elastic_reg   | ElasticNetRegularization | 0
+5 | criterion     | Constrained_Loss         | 0
+-----------------------------------------------------------
+11.2 M    Trainable params
+0         Non-trainable params
+11.2 M    Total params
+22.440    Total estimated model params size (MB)
+Sanity Checking DataLoader 0: 100%|████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 10.80it/s]========== val metrics ==========
+	val_Accuracy: 0.011962890625
+Epoch 0:   0%|                                                                                            | 0/25 [00:00<?, ?it/s]=====> CV: 2516.037
+=====> CV/CV_0: 0.994
+=====> Objective_function loss: 4.777
+=====> Constraint Norm loss: 25.160
+Epoch 0: 100%|█| 25/25 [00:08<00:00,  2.88it/s, loss=519, v_num=83ns, train_loss_step=286.0, train_data_fidelity_step=4.310, trai========== val metrics ==========
+	val_Accuracy: 0.013199999928474426████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 13.71it/s]
+Epoch 1:   0%| | 0/25 [00:00<?, ?it/s, loss=461, v_num=83ns, train_loss_step=259.0, train_data_fidelity_step=4.260, train_constra=====> CV: 2349.752
+=====> CV/CV_0: 0.928
+=====> Objective_function loss: 4.127
+=====> Constraint Norm loss: 23.498
+
+Epoch 1: 100%|█| 25/25 [00:08<00:00,  2.84it/s, loss=170, v_num=83ns, train_loss_step=117.0, train_data_fidelity_step=3.980, trai========== val metrics ==========
+	val_Accuracy: 0.009999999776482582████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 14.21it/s]
+Epoch 2:   0%| | 0/25 [00:00<?, ?it/s, loss=157, v_num=83ns, train_loss_step=110.0, train_data_fidelity_step=3.950, train_constra=====> CV: 2259.431
+=====> CV/CV_0: 0.893
+=====> Objective_function loss: 3.772
+=====> Constraint Norm loss: 22.594
+Epoch 2:  40%|▍| 10/25 [00:04<00:06,  2.31it/s, loss=112, v_num=83ns, train_loss_step=85.70, train_data_fidelity_step=3.900, trai==================== Model ckpt scores ====================
+val_Accuracy checkpoint : score 0.013199999928474426
+val_loss checkpoint : score 107.7291030883789
+Files already downloaded and verified

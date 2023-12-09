@@ -1,0 +1,175 @@
+{
+    "os": "Linux-6.2.0-33-generic-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "heartbeatAt": "2023-09-29T10:12:42.525881",
+    "startedAt": "2023-09-29T10:12:41.752167",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--model",
+        "resnet",
+        "--dataset",
+        "cifar100",
+        "--opt_mode",
+        "penalty"
+    ],
+    "state": "running",
+    "program": "/home/didi/VSCode/Philosophy-of-Doctors/MNIST_GENEOs/scripts/opt_main.py",
+    "codePathLocal": "opt_main.py",
+    "codePath": "MNIST_GENEOs/scripts/opt_main.py",
+    "git": {
+        "remote": "https://github.com/dlavado/Philosophy-of-Doctors.git",
+        "commit": "c5cd8f404c48d6b085137d7bf6fa51e3e9cb8c53"
+    },
+    "email": "d.lavado@campus.fct.unl.pt",
+    "root": "/home/didi/VSCode/Philosophy-of-Doctors",
+    "host": "tsuky",
+    "username": "didi",
+    "executable": "/home/didi/VSCode/Philosophy-of-Doctors/MNIST_GENEOs/venv_auglag/bin/python3",
+    "cpu_count": 16,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 2520.306416666667,
+        "min": 800.0,
+        "max": 4466.666666666667
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 4484.333,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 2300.0,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 2314.218,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 2300.0,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 4360.798,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 2300.0,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 2284.353,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 2300.0,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 4392.174,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 2300.0,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 800.25,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 2300.0,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 4456.499,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 2300.0,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 4500.35,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 2998.862,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 1765.032,
+            "min": 800.0,
+            "max": 3700.0
+        },
+        {
+            "current": 1778.769,
+            "min": 800.0,
+            "max": 3700.0
+        },
+        {
+            "current": 1276.73,
+            "min": 800.0,
+            "max": 3700.0
+        },
+        {
+            "current": 2300.0,
+            "min": 800.0,
+            "max": 3700.0
+        },
+        {
+            "current": 2300.0,
+            "min": 800.0,
+            "max": 3700.0
+        },
+        {
+            "current": 2300.0,
+            "min": 800.0,
+            "max": 3700.0
+        },
+        {
+            "current": 2300.0,
+            "min": 800.0,
+            "max": 3700.0
+        },
+        {
+            "current": 2300.0,
+            "min": 800.0,
+            "max": 3700.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 937.3305015563965,
+            "used": 381.9275665283203
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4070 Laptop GPU",
+            "memory_total": 8585740288
+        }
+    ],
+    "memory": {
+        "total": 31.142990112304688
+    }
+}

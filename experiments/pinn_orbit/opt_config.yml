@@ -1,0 +1,122 @@
+group:
+  value: 'ORBIT'
+output_dir: 
+  value: 'experiments/$model_$dataset/outputs'
+# ------------------ #
+# dataset config
+# ------------------ #
+dataset:
+  value: 'orbit'
+data_path:
+  value: ../datasets/orbit/
+batch_size:
+  value: 256
+num_workers:
+  value: 0
+num_classes:
+  value: 10
+# ------------------ #
+# model config
+# ------------------ #
+model:
+  value: 'pinn'
+window_size:
+  value: 5
+feat_size:
+  value: 7
+hidden_dim:
+  value: 128
+in_channels:
+  value: 1
+batch_norm:
+  value: True
+dropout:
+  value: 0.2
+# ------------------ #
+# training config
+# ------------------ #
+optimizer:
+  value: 'adam' #'adam' 
+learning_rate:
+  value: 0.001
+max_epochs:
+  value: 50 # -1 for infinite
+accelerator:
+  value: 'gpu' # 'ddp' or 'dp'
+devices:
+  value: -1 # -1 for all available gpus
+early_stop_metric:
+  value: 'val_loss'
+# ------------------ #
+# Checkpoint config
+# ------------------ #
+resume_from_checkpoint:
+  value: False
+checkpoint_dir:
+  value: '${ROOT_PROJECT}/experiments/${model_name}_${dataset_name}/'
+resume_checkpoint_name:
+  value: val_loss
+checkpoint_every_n_epochs: # This parameter and the next one are mutually exclusive
+  value: 1 # every n epochs
+checkpoint_every_n_steps:
+  value: 0 # every n steps
+
+# ------------------ #
+# Lit Trainer config
+# ------------------ #
+fast_dev_run:
+  value: True
+precision: # 16 or 32 FPU precision
+  value: 32
+  description: 'FPU precision'
+auto_lr_find:
+  value: False
+auto_scale_batch_size:
+  value: False
+profiler:
+  value: False
+  description: 'PyTorch Lightning profiler'
+accumulate_grad_batches:
+  value: None
+  description: 'Accumulate gradients on k batches before performing a backward pass'
+save_onnx:
+  value: False
+  description: 'Save model in onnx format'
+
+
+# ------------------ #
+# Opt Config
+# ------------------ #
+convergence_mode:
+  value: 'penalty' # 'admm' or 'penalty' or 'auglag'
+  description: 'Convergence mode of the ADMM algorithm'
+admm_rho:
+  value: 1.0
+  description: 'Initial value of the penalty parameter of the augmented Lagrangian method'
+admm_rho_update_factor:
+  value: 1.00
+  description: 'Factor by which the penalty parameter is updated'
+admm_stepsize:
+  value: 10.0
+  description: 'Step size of the ADMM algorithm'
+admm_stepsize_update_factor:
+  value: 1.0
+  description: 'Factor by which the step size is updated'
+admm_rho_max:
+  value: 10
+  description: 'Maximum value of the penalty parameter'
+convergence_iterations:
+  value: 5
+  description: 'Number of iterations of the Augmented Lagrangian method to reach convergence'
+# ------------------ #
+# Constraint Config
+# ------------------ #
+threebody_weight:
+  value: 0.1
+  description: 'Three-body constraint weight'
+reg_weight:
+  value: 0.001
+  description: 'Elastic regularization weight'
+cv_0:
+  value: 1.523710003321501e-09 # taken from fixed penalty
+  description: 'Initial Constraint violation'
